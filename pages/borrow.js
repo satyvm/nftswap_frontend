@@ -20,13 +20,15 @@ export default function borrow(){
     return(
         <div>
             <NavBar />
-            {
-                nftList.map((nft, i)=>{
-                    return (
-                        <Nftcard key={i} metadata={nft.metadata} symbol={nft.symbol} token_address={nft.token_address} token_id={nft.token_id}/>
-                    )
-                })
-            }
+            <div className="grid grid-cols-4 gap-4" style={{margin:10}}>
+                {
+                    nftList.map((nft, i)=>{
+                        return (
+                            <Nftcard key={i} metadata={nft.metadata} symbol={nft.symbol} token_address={nft.token_address} token_id={nft.token_id}/>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
