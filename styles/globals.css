@@ -12,3 +12,11 @@
 .font{
   font-family: 'Karla', sans-serif;
 }
+
+.glass_card{
+  height: auto;
+  border-radius: 1rem;
+  background: rgba(211, 211, 211, 0.816);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
+}
