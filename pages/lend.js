@@ -20,17 +20,12 @@ export default function Borrow(){
                 {!isConnected && !isLoading && (<button className="text-white rounded-lg bg-black/90 hover:bg-black/80 active:bg-white/10 focus:none p-3 px-5 m-3" onClick={async ()=>{
                     setLoadin(true)
                     let starknet = await connect({ showList: false })
-                    if(starknet){
-                        await starknet.enable()
-                        if(starknet.isConnected){
-                            window.starknet_ = starknet;
-                            setIsConnected(true)
-                            return;
-                        }
-                    }else{
-                        console.log('here1')
+                    await starknet.enable()
+                    if(starknet.isConnected){
+                        window.starknet_ = starknet;
+                        setIsConnected(true)
+                        return;
                     }
-                    setLoadin(false)
                 }}>Connect ArgentX
                 </button>)}
                 {!isConnected && isLoading && (<div className="flex justify-center">
