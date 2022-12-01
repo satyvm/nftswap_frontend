@@ -49,9 +49,9 @@ export default function Borrow(){
                                     //window.starknet
                                     const erc20 = new Contract(tokenStrk.abi, "0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7", window.starknet.provider);
                                     erc20.connect(window.starknet_.account);
-                                    const gw = new Contract(mainStrk.abi, "0x07685c360044d95517463ef40ba19f85718c3ac4e7b4f6acdfbb124be8a8e582", window.starknet.provider);
+                                    const gw = new Contract(mainStrk.abi, "0x0293db72cad0f062c08005ad1d10178c2646345bfeeaf845366ac84a56b8dd2f", window.starknet.provider);
                                     gw.connect(window.starknet_.account);
-                                    const x  = await erc20.approve( '0x07685c360044d95517463ef40ba19f85718c3ac4e7b4f6acdfbb124be8a8e582', [Web3.utils.toWei(val),'0']);
+                                    const x  = await erc20.approve( '0x0293db72cad0f062c08005ad1d10178c2646345bfeeaf845366ac84a56b8dd2f', [Web3.utils.toWei(val),'0']);
                                     console.log(x)
                                     //await window.starknet_.waitForTransaction(mintTxHash);
                                     const {transaction_hash} = await gw.stake([Web3.utils.toWei(val),'0'])

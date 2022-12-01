@@ -17,7 +17,7 @@ export default function NftCard({ metadata, symbol, token_address, token_id }){
         await starknet.enable()
         window.starknet_ = starknet;
         if(starknet.isConnected){
-            const gwcontract_address = "0xdbCf54d2eB02bb2aFB9B728C44c8ec1B0780FF16";
+            const gwcontract_address = "0xcDAa2Db7F970058cd373d5E68c10136ebAcF4160";
             let gwcontract = new web3.eth.Contract(gateway.abi, gwcontract_address); 
             let nftcontract = new web3.eth.Contract(nft.abi, token_address); 
             console.log(starknet.selectedAddress)
