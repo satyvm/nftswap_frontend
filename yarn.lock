@@ -377,6 +377,11 @@
   dependencies:
     client-only "^0.0.1"
 
+"@heroicons/react@^2.0.13":
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.13.tgz#9b1cc54ff77d6625c9565efdce0054a4bcd9074c"
+  integrity sha512-iSN5XwmagrnirWlYEWNPdCDj9aRYVD/lnK3JlsC9/+fqGF80k8C7rl+1HCvBX0dBoagKqOFBs6fMhJJ1hOg1EQ==
+
 "@humanwhocodes/config-array@^0.11.6":
   version "0.11.7"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.7.tgz#38aec044c6c828f6ed51d5d7ae3d9b9faf6dbb0f"
@@ -4614,9 +4619,9 @@ web3-eth-iban@1.8.1:
     bn.js "^5.2.1"
     web3-utils "1.8.1"
 
-web3-eth-personal@1.8.1:
+web3-eth-networkal@1.8.1:
   version "1.8.1"
-  resolved "https://registry.yarnpkg.com/web3-eth-personal/-/web3-eth-personal-1.8.1.tgz#00b5ff1898b62044d25ed5fddd8486168d4827cf"
+  resolved "https://registry.yarnpkg.com/web3-eth-networkal/-/web3-eth-networkal-1.8.1.tgz#00b5ff1898b62044d25ed5fddd8486168d4827cf"
   integrity sha512-myIYMvj7SDIoV9vE5BkVdon3pya1WinaXItugoii2VoTcQNPOtBxmYVH+XS5ErzCJlnxzphpQrkywyY64bbbCA==
   dependencies:
     "@types/node" "^12.12.6"
@@ -4640,7 +4645,7 @@ web3-eth@1.8.1:
     web3-eth-contract "1.8.1"
     web3-eth-ens "1.8.1"
     web3-eth-iban "1.8.1"
-    web3-eth-personal "1.8.1"
+    web3-eth-networkal "1.8.1"
     web3-net "1.8.1"
     web3-utils "1.8.1"
 
@@ -4711,7 +4716,7 @@ web3@^1.8.1:
     web3-bzz "1.8.1"
     web3-core "1.8.1"
     web3-eth "1.8.1"
-    web3-eth-personal "1.8.1"
+    web3-eth-networkal "1.8.1"
     web3-net "1.8.1"
     web3-shh "1.8.1"
     web3-utils "1.8.1"
