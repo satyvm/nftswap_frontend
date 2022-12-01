@@ -1,15 +1,19 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 const networks = [
-  { name: 'USDC' },
-  { name: 'DAI' },
-  { name: 'USDT' },
+  { name: 'USDC', address: '0x005a643907b9a4bc6a55e9069c4fd5fd1f5c79a22470690f75556c4736e34426' },
+  { name: 'DAI', address: '0x03e85bfbb8e2a42b7bead9e88e9a1b19dbccf661471061807292120462396ec9' },
+  { name: 'USDT', address: '0x0386e8d061177f19b3b485c20e31137e6f6bc497cc635ccdfcab96fadf5add6a' }
 ]
 
-export default function SelectNetwork() {
+export default function SelectNetwork({ onTokenSelect }) {
   const [selected, setSelected] = useState(networks[0])
+
+  useEffect(()=>{
+    onTokenSelect(selected)
+  },[selected])
 
   return (
     <div>

@@ -4,7 +4,7 @@ import ConnectMeta from './components/connectMeta'
 import NftCard from './components/nftCard'
 import { TailSpin } from 'react-loader-spinner';
 import Web3 from 'web3';
-import gateway from '../gateway';
+
 function ConnectDiv({ isLoading, ...props }) {
     return (
       <div {...props}>
@@ -59,7 +59,6 @@ export default function Borrow(){
         console.log("Connected", accounts[0]);
         setCurrentAccount(accounts[0]);
         window.web3 = new Web3(ethereum);
-        window.contract = new web3.eth.Contract(gateway.abi, "0xdbCf54d2eB02bb2aFB9B728C44c8ec1B0780FF16"); 
         } catch (error) {
         console.log(error)
         }
