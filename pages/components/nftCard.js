@@ -9,6 +9,7 @@ export default function NftCard({ metadata, symbol, token_address, token_id }){
     let [isOpen, setIsOpen] = useState(false)
     const [tokeAdd, setTokenAdd] = useState("")
     const [isLoading, setIsloading] = useState(false)
+    const [final, setFinal] = useState(false)
     async function closeModal() {
         setIsloading(true)
         let starknet = await connect({ showList: false })
@@ -21,9 +22,11 @@ export default function NftCard({ metadata, symbol, token_address, token_id }){
                 let gwcontract = new web3.eth.Contract(gateway.abi, gwcontract_address); 
                 let nftcontract = new web3.eth.Contract(nft.abi, token_address); 
                 console.log(starknet.selectedAddress)
-                await nftcontract.methods.approve(gwcontract_address, token_id).send()
-                await gwcontract.methods.bridgeToStarknet(token_address, token_id, starknet.selectedAddress, window.web3.utils.toWei('0.01'),tokeAdd).send()
-                setIsOpen(false)
+                const { ethereum } = window;
+                const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+                await nftcontract.methods.approve(gwcontract_address, token_id).send({ from: accounts[0] })
+                await gwcontract.methods.bridgeToStarknet(token_address, token_id, starknet.selectedAddress, window.web3.utils.toWei('0.01'),tokeAdd.address).send({ from: accounts[0] })
+                setFinal(true)
                 setIsloading(false)
                 return;
             }
@@ -102,7 +105,7 @@ export default function NftCard({ metadata, symbol, token_address, token_id }){
                             </div>
                             <div className="p-4 pb-10">
                                 <SelectNetwork  onTokenSelect={(network)=>{
-                                    setTokenAdd(network.address)
+                                    setTokenAdd(network)
                                 }}/>
                             </div>
                             <div className="mt-2 flex justify-center">
@@ -124,6 +127,18 @@ export default function NftCard({ metadata, symbol, token_address, token_id }){
                             radius="0.5"
                             className="text-black rounded-lg bg-white hover:bg-white active:bg-white focus:none p-3 px-5 m-3"/> 
                         </div>)}
+                        {final &&
+                            (<div>
+                                <div>
+                                <Dialog.Title as="h3" className="text-3xl px-4 pt-6">
+                                    Congratulations 🎉
+                                </Dialog.Title>
+                                <div className="mt-2 text-sm p-4">
+                                <div className="text-black/70 break-all" style={{display:'flex', flexDirection:'column', alignItems:'center'}}><span className="font-bold">You will shortly receive {tokeAdd.name} value of 0.01 ETH. </span><span>Powered by JediSwap.</span></div>
+                                </div>
+                            </div>
+                            </div>)
+                        }
                         </Dialog.Panel>
                     </Transition.Child>
                     </div>
